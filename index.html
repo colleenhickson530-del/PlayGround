@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101715" />
+  <title>Afterlight — New Eden, 2442</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Afterlight home"><span class="brand-mark">✳</span><span>AFTERLIGHT</span><small>FRONTIER SIMULATOR</small></a>
+      <div class="location"><span class="live-dot"></span><div><strong>NEW EDEN</strong><small>SETTLEMENT SECTOR · 2442</small></div></div>
+      <div class="top-stats"><div class="stat"><span class="stat-icon sun">☼</span><div><b id="dayLabel">DAY 01</b><small id="weatherLabel">CLEAR SKIES</small></div></div><div class="stat"><span class="stat-icon grade">G</span><div><b id="gradeTop">120</b><small>GRADE</small></div></div><button class="icon-btn" id="soundBtn" title="Toggle ambience">♫</button><button class="avatar" title="Your survivor">J</button></div>
+    </header>
+    <main class="layout">
+      <aside class="left-rail">
+        <div class="rail-heading"><span>YOUR FRONTIER</span><span class="tiny-tag">LIVE</span></div>
+        <button class="rail-link active" data-tab="overview"><span class="rail-icon">⌂</span><span>Overview</span></button>
+        <button class="rail-link" data-tab="missions"><span class="rail-icon">✧</span><span>Missions</span><span class="rail-count" id="missionCount">2</span></button>
+        <button class="rail-link" data-tab="people"><span class="rail-icon">◎</span><span>Survivors</span><span class="rail-count" id="peopleCount">0</span></button>
+        <button class="rail-link" data-tab="build"><span class="rail-icon">▦</span><span>Build</span></button>
+        <div class="rail-divider"></div>
+        <div class="rail-heading"><span>SETTLEMENT</span></div>
+        <div class="settlement-card"><div class="settlement-top"><span class="settle-icon">⌂</span><span class="settle-state">GROWING</span></div><strong id="settlementName">The Landing</strong><div class="settle-meter"><span id="settlementMeter" style="width:22%"></span></div><small><span id="settlerCount">1</span> settlers <i>·</i> <span id="buildingCount">0</span> buildings</small></div>
+        <div class="rail-tip"><span class="tip-spark">✳</span><p><strong>A quieter kind of future.</strong><br>Rebuild at your own pace. The world is yours to shape.</p></div>
+        <div class="rail-bottom"><span class="online-dot"></span> AUTOSAVE ON <span class="version">v0.9.4</span></div>
+      </aside>
+      <section class="main-area">
+        <div class="welcome-row"><div><div class="eyebrow">A NEW DAY ON THE FRONTIER <span>—</span> 06:42 AM</div><h1>Make a life <em>out here.</em></h1><p class="welcome-copy">The old world is quiet. What comes next is up to you.</p></div><button class="help-btn" id="helpBtn">? <span>HOW TO PLAY</span></button></div>
+        <div class="game-grid">
+          <section class="world-card">
+            <div class="world-toolbar"><div class="world-title"><span class="map-pin">⌖</span><div><strong>THE OPEN WORLD</strong><small>Click a place to explore · WASD to move</small></div></div><div class="world-actions"><span class="world-coords" id="coordLabel">SECTOR 04 · 12</span><button class="small-icon" id="centerBtn" title="Center on player">◎</button></div></div>
+            <div class="canvas-wrap"><canvas id="world" aria-label="Explorable world map"></canvas><div class="map-toast" id="mapToast"></div><div class="map-legend"><span><i class="legend-dot survivor-dot"></i> SURVIVOR</span><span><i class="legend-dot loot-dot"></i> SUPPLIES</span><span><i class="legend-dot home-dot"></i> YOUR LAND</span></div><div class="zoom-controls"><button id="zoomOut">−</button><span id="zoomLabel">100%</span><button id="zoomIn">+</button></div></div>
+            <div class="world-footer"><span><i class="pulse"></i> ALL QUIET IN NEW EDEN</span><span id="discoveriesLabel">0 / 8 DISCOVERIES</span><button id="mapHelp">MAP KEY ↗</button></div>
+          </section>
+          <aside class="right-column">
+            <section class="objective-card"><div class="card-kicker"><span class="kicker-star">✧</span> YOUR NEXT CHAPTER</div><div class="objective-art"><div class="sun-orb"></div><div class="art-hill hill-back"></div><div class="art-hill hill-front"></div><span class="art-house">⌂</span></div><div class="objective-body"><div class="objective-label">SETTLEMENT MILESTONE</div><h2>Somewhere to call home</h2><p>Gather a few things and put down roots. Start with a shelter on your land.</p><div class="task-progress"><div class="progress-line"><span id="milestoneProgress" style="width:20%"></span></div><small id="milestoneLabel">1 of 5 supplies gathered</small></div><button class="primary-btn" id="startBuildBtn">START BUILDING <span>↗</span></button></div></section>
+            <section class="daily-card"><div class="daily-head"><strong>AROUND THE CORNER</strong><span>3 SIGHTINGS</span></div><div class="sighting" data-target="market"><span class="sighting-icon orange">♧</span><div><b>Jun found a place to rest</b><small>At the old corner store</small></div><button aria-label="Find Jun">↗</button></div><div class="sighting" data-target="diner"><span class="sighting-icon pink">☕</span><div><b>Someone's at the diner</b><small>Looks like they need a hand</small></div><button aria-label="Find survivor at diner">↗</button></div><div class="sighting" data-target="mill"><span class="sighting-icon green">⌁</span><div><b>Salvage spotted nearby</b><small>Windmill service shed</small></div><button aria-label="Find salvage">↗</button></div></section>
+          </aside>
+        </div>
+        <section class="quickbar"><div class="quick-intro"><span class="quick-flower">✳</span><div><b>WHERE TO NEXT?</b><small>Small steps make a home.</small></div></div><button class="quick-action" data-action="scavenge"><span class="quick-icon mint">⌕</span><span><b>Find supplies</b><small>Search the neighborhood</small></span><i>↗</i></button><button class="quick-action" data-action="missions"><span class="quick-icon amber">✧</span><span><b>Take a mission</b><small>Help out, earn Grade</small></span><i>↗</i></button><button class="quick-action" data-action="trade"><span class="quick-icon lilac">⇄</span><span><b>Visit the Exchange</b><small>Trade for what you need</small></span><i>↗</i></button></section>
+        <footer class="main-footer"><span>✳ A WORLD WITHOUT RUSH.</span><span>BUILT TO BE YOURS <i>·</i> 2442</span></footer>
+      </section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div class="modal-content" id="modalContent"></div></section></div>
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <script src="game.js"></script>
+</body>
+</html>
