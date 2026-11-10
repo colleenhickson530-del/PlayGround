@@ -3,77 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASTELAND STORIES</title>
+  <title>Everafter — Campus & City Life</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="app-shell">
+  <main class="game-shell">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">✦</span><div><div class="brand-name">WASTELAND</div><div class="brand-sub">STORIES / 04</div></div></div>
-      <div class="season"><span class="live-dot"></span> SEASON 02 <span class="slash">/</span> DAY 18</div>
-      <div class="top-actions"><button class="icon-btn" id="soundBtn" title="Toggle sound">◒</button><button class="icon-btn" id="helpBtn">?</button><button class="avatar-mini">JR</button></div>
+      <a class="brand" href="#"><span class="brand-symbol">✳</span><span>everafter<small>YOUR NEXT CHAPTER</small></span></a>
+      <div class="world-title"><span class="live-dot"></span><span id="locationLabel">WILLOWBROOK UNIVERSITY</span><i>·</i><b id="dayLabel">MONDAY · WEEK 1</b></div>
+      <div class="wallet"><span>✦</span><b id="credz">240</b><small>CREDZZ</small></div>
+      <button class="round-btn" id="soundBtn" title="Sound">♫</button><button class="round-btn" id="helpBtn">?</button>
+      <button class="profile-chip" id="profileBtn"><span id="profileInitial">A</span><i>⌄</i></button>
     </header>
-
-    <section class="game-layout">
-      <aside class="left-rail">
-        <div class="rail-heading"><span>YOUR SETTLEMENT</span><button class="dots">•••</button></div>
-        <div class="settlement-card">
-          <div class="settlement-icon">⌂</div><div><strong>Juniper Hollow</strong><small>Frontier District</small></div><div class="status-pill">SAFE</div>
-        </div>
-        <div class="resource-list">
-          <div class="resource"><span class="resource-icon water">◒</span><span>Purified water</span><b id="waterCount">24</b><i>+2 / day</i></div>
-          <div class="resource"><span class="resource-icon food">✤</span><span>Food stores</span><b id="foodCount">38</b><i>+4 / day</i></div>
-          <div class="resource"><span class="resource-icon scrap">▦</span><span>Salvaged parts</span><b id="scrapCount">126</b><i>+8 / day</i></div>
-        </div>
-        <div class="rail-section-title">CURRENT OBJECTIVES</div>
-        <button class="objective active" data-objective="water"><span class="check">✓</span><span><b>Keep the well singing</b><small>Upgrade the water purifier</small></span><em>2 / 3</em></button>
-        <button class="objective" data-objective="garden"><span class="check empty"></span><span><b>Grow something green</b><small>Plant a crop in the garden</small></span><em>0 / 1</em></button>
-        <button class="objective" data-objective="radio"><span class="check empty"></span><span><b>Catch the signal</b><small>Repair the long-range radio</small></span><em>0 / 1</em></button>
-        <div class="rail-footer"><div class="mood-label">SETTLEMENT MOOD <strong id="moodText">HOPEFUL</strong></div><div class="mood-meter"><span id="moodMeter"></span></div><small>Last event: trader arrived</small></div>
+    <div class="game-grid">
+      <aside class="left-panel">
+        <section class="player-card"><div class="section-eyebrow">YOUR STORY <span class="online-tag">● IN WORLD</span></div><div class="player-row"><div class="portrait" id="portrait">A</div><div><h2 id="playerName">ALEX RIVER</h2><p id="playerCourse">FIRST YEAR · UNDECIDED</p></div></div><div class="level-line"><span>STUDENT LEVEL <b id="levelText">01</b></span><span id="xpText">20 / 100 XP</span></div><div class="xp-track"><i id="xpBar"></i></div></section>
+        <section class="needs-card"><div class="panel-title">LIFE BALANCE <small>YOUR NEEDS</small></div><div class="need-row"><span class="need-icon energy-icon">☀</span><span>Energy</span><div class="meter"><i id="energyBar"></i></div><b id="energyValue">82</b></div><div class="need-row"><span class="need-icon hunger-icon">♡</span><span>Hunger</span><div class="meter"><i id="hungerBar"></i></div><b id="hungerValue">74</b></div><div class="need-row"><span class="need-icon joy-icon">✿</span><span>Happiness</span><div class="meter"><i id="joyBar"></i></div><b id="joyValue">88</b></div><div class="need-row"><span class="need-icon social-icon">✧</span><span>Social</span><div class="meter"><i id="socialBar"></i></div><b id="socialValue">56</b></div></section>
+        <section class="quest-card"><div class="panel-title">CHAPTER ONE <small>MAIN STORY</small></div><div class="quest-name"><span class="quest-spark">✦</span><div><b id="questTitle">New roots, new routes</b><small id="questDescription">Meet someone on campus</small></div></div><div class="quest-progress"><i id="questBar"></i></div><div class="quest-foot"><span id="questStep">0 / 3 moments</span><button id="questButton">DETAILS ↗</button></div></section>
+        <section class="quick-nav"><div class="panel-title">YOUR LIFE <small>QUICK ACCESS</small></div><button data-panel="phone">▣ <span>Phone & friends</span><b>›</b></button><button data-panel="inventory">▤ <span>Backpack & resources</span><b>›</b></button><button data-panel="home">⌂ <span>My home & build</span><b>›</b></button></section>
+        <div class="left-bottom"><span>✦</span> A LITTLE WORLD, ALL YOURS</div>
       </aside>
-
-      <section class="world-panel">
-        <div class="world-toolbar"><div class="crumb">JUNIPER HOLLOW <span>/</span> OUTER RING</div><div class="world-controls"><button id="buildBtn">＋ BUILD</button><button id="mapBtn">⌖ MAP</button></div></div>
-        <div class="scene" id="scene">
-          <div class="sun-glow"></div><div class="sky-line"></div><div class="mountains back"></div><div class="mountains front"></div>
-          <div class="road road-a"></div><div class="road road-b"></div><div class="dust dust-one"></div><div class="dust dust-two"></div>
-          <div class="water-tower"><div class="tower-tank">W</div><div class="tower-legs"></div></div>
-          <div class="radio-tower"><div class="antenna"></div><div class="radio-box">⌁</div><div class="radio-leg l1"></div><div class="radio-leg l2"></div></div>
-          <div class="home home-one"><div class="roof"></div><div class="window"></div><div class="door"></div><label>HOME 01</label></div>
-          <div class="home home-two"><div class="roof"></div><div class="window"></div><div class="door"></div><label>HOME 02</label></div>
-          <div class="garden"><div class="plot"></div><div class="crop c1"></div><div class="crop c2"></div><div class="crop c3"></div><label>COMMUNITY GARDEN</label></div>
-          <div class="campfire"><span></span><i></i><b></b></div>
-          <div class="character char-rhea" data-person="rhea"><div class="name-tag">RHEA <small>●</small></div><div class="person-head"></div><div class="person-body"></div><div class="person-legs"></div></div>
-          <div class="character char-jonah" data-person="jonah"><div class="name-tag">JONAH <small>●</small></div><div class="person-head"></div><div class="person-body"></div><div class="person-legs"></div></div>
-          <div class="character char-lio" data-person="lio"><div class="name-tag">LIO <small>●</small></div><div class="person-head"></div><div class="person-body"></div><div class="person-legs"></div></div>
-          <div class="scene-caption"><span class="weather-icon">☼</span><div><strong>DRY HEAT</strong><small>26° C · CLEAR SKIES</small></div></div>
-          <div class="time-card"><span id="timeIcon">☀</span><div><b id="timeText">09:42</b><small>WEDNESDAY</small></div><button id="pauseBtn">Ⅱ</button></div>
-        </div>
-        <div class="event-strip"><div class="event-kicker">✦ NEW EVENT</div><div><strong>A traveler at the gate</strong><span>Someone is asking for shelter. Their story feels familiar.</span></div><button id="eventBtn">VIEW</button></div>
+      <section class="world-area">
+        <div class="world-toolbar"><div><span class="eyebrow">OPEN WORLD</span><h1 id="placeTitle">Willowbrook Campus</h1></div><div class="world-tools"><button class="tool-button" id="mapBtn">⌖ <span>WORLD MAP</span></button><button class="tool-button" id="buildBtn">＋ <span>BUILD</span></button></div></div>
+        <div class="scene-wrap"><div id="scene"></div><div class="scene-vignette"></div><div class="scene-topline"><span class="weather-pill">☀ &nbsp;SUNNY · 22°</span><span class="clock-pill"><span>◷</span> <b id="clock">09:42 AM</b></span></div><div class="location-pins" id="locationPins"></div><div class="scene-hint"><span>WASD</span> MOVE <i>·</i> <span>SPACE</span> JUMP <i>·</i> CLICK A PLACE TO VISIT</div><div class="scene-bottom"><div class="location-caption"><span class="caption-icon">✿</span><div><b id="captionName">WILLOWBROOK CAMPUS</b><small id="captionSub">A good place to begin again.</small></div></div><button id="travelBtn">TRAVEL <span>↗</span></button></div><div class="build-hud" id="buildHud"><b>BUILD MODE</b><span>Choose an item, then click the lawn to place it.</span><button id="exitBuild">DONE</button></div></div>
+        <div class="world-tabs"><button class="tab active" data-tab="discover">✧ &nbsp; DISCOVER</button><button class="tab" data-tab="people">♧ &nbsp; PEOPLE NEARBY <i>3</i></button><button class="tab" data-tab="activities">◈ &nbsp; ACTIVITIES</button><div class="tab-info" id="tabInfo">Explore campus and meet your new neighbors.</div></div>
+        <div class="activity-row" id="activityRow"><button class="activity-card" data-action="study"><span class="activity-icon study">⌑</span><span><b>Study session</b><small>Library · + grades & XP</small></span><i>↗</i></button><button class="activity-card" data-action="work"><span class="activity-icon work">✦</span><span><b>Campus shift</b><small>Student café · + 45 credzz</small></span><i>↗</i></button><button class="activity-card" data-action="social"><span class="activity-icon social">♡</span><span><b>Meet the locals</b><small>Make a new connection</small></span><i>↗</i></button><button class="activity-card" data-action="farm"><span class="activity-icon farm">❀</span><span><b>Tend the garden</b><small>Seeds · harvest & relax</small></span><i>↗</i></button></div>
       </section>
-
-      <aside class="right-panel">
-        <div class="selected-heading"><span>SELECTED RESIDENT</span><span class="online">● IN WORLD</span></div>
-        <div class="resident-card" id="residentCard"><div class="portrait portrait-rhea"><span>R</span></div><div class="resident-info"><h2 id="residentName">RHEA VALE</h2><p id="residentRole">SCOUT · LEVEL 04</p><div class="trait-row"><span>✦ DETERMINED</span><span>☘ MAKER</span></div></div></div>
-        <div class="quote" id="quote">“The old world left us the tools. We decide what to build.”</div>
-        <div class="needs-title">NEEDS <span id="needsMood">CONTENT</span></div>
-        <div class="needs">
-          <div class="need"><span>☕</span><label>ENERGY</label><div class="bar"><i id="energyBar" style="width:82%"></i></div><b id="energyValue">82</b></div>
-          <div class="need"><span>♥</span><label>HUNGER</label><div class="bar"><i id="hungerBar" style="width:64%"></i></div><b id="hungerValue">64</b></div>
-          <div class="need"><span>⌁</span><label>SPIRIT</label><div class="bar"><i id="spiritBar" style="width:91%"></i></div><b id="spiritValue">91</b></div>
-        </div>
-        <div class="inventory-title">ON HAND <span>6 ITEMS</span></div>
-        <div class="inventory"><div class="item"><span class="item-art wrench">⚒</span><b>Field kit</b><small>2 / 2</small></div><div class="item"><span class="item-art seed">✳</span><b>Seed pouch</b><small>8 seeds</small></div><div class="item"><span class="item-art bottle">♢</span><b>Water flask</b><small>Full</small></div></div>
-        <button class="inspect-btn" id="inspectBtn">INSPECT RESIDENT <span>↗</span></button>
-      </aside>
-    </section>
-    <footer class="action-bar"><div class="action-label"><span>ACTIONS</span><small>Choose a moment</small></div><button class="action" data-action="scavenge"><span class="action-icon">⌕</span><b>SCAVENGE</b><small>Search the ruins</small></button><button class="action" data-action="craft"><span class="action-icon">⚒</span><b>CRAFT</b><small>Use the workbench</small></button><button class="action" data-action="social"><span class="action-icon">✧</span><b>GATHER</b><small>Talk around the fire</small></button><button class="action" data-action="rest"><span class="action-icon">☾</span><b>REST</b><small>Recover energy</small></button><div class="action-status" id="actionStatus">Select an action to begin your day.</div></footer>
+      <aside class="right-panel"><section class="right-heading"><div><span class="eyebrow">YOUR NEXT CHAPTER</span><h2>Campus life</h2></div><button class="dots" id="moreBtn">•••</button></section><div class="weather-card"><div class="weather-art">☀</div><div><b>A fresh start</b><small>Classes begin at 10:00 AM</small></div><span>72°</span></div><div class="schedule-head"><div class="panel-title">TODAY'S SCHEDULE</div><button id="scheduleBtn">VIEW ALL</button></div><div class="schedule"><div class="schedule-item current"><span class="schedule-time">10:00</span><i></i><div><b>Foundations of design</b><small>Arts Hall · Room 204</small></div><span class="schedule-state">SOON</span></div><div class="schedule-item"><span class="schedule-time">12:30</span><i></i><div><b>Lunch with the crew</b><small>Fern & Finch café</small></div></div><div class="schedule-item"><span class="schedule-time">15:00</span><i></i><div><b>Open studio hours</b><small>Creative Commons</small></div></div></div><div class="divider"></div><div class="people-head"><div class="panel-title">PEOPLE TO KNOW <small>3 NEARBY</small></div><button id="peopleBtn">ALL ↗</button></div><div class="people-list"><button class="person-row" data-person="maya"><span class="person-avatar maya">M</span><span><b>Maya Chen</b><small>Art student · warm-hearted</small></span><i>♡</i></button><button class="person-row" data-person="leo"><span class="person-avatar leo">L</span><span><b>Leo Brooks</b><small>Environmental science</small></span><i>♡</i></button><button class="person-row" data-person="sam"> <span class="person-avatar sam">S</span><span><b>Sam Rivera</b><small>Campus barista · new friend</small></span><i>♡</i></button></div><div class="pet-promo"><span class="pet-icon">🐾</span><div><b>Room for one more?</b><small>Visit Paws & Whiskers to adopt</small></div><button id="petBtn">↗</button></div><div class="tip-card"><span>✦</span><p><b>Little tip</b><br>Good grades open doors to exciting careers. Visit the library to study!</p></div></aside>
+    </div>
+    <footer class="bottom-bar"><div class="bottom-brand"><span>✳</span><b>EVERAFTER</b><small>MAKE IT YOURS</small></div><div class="bottom-status"><span class="green-dot"></span><b id="footerLocation">Willowbrook Campus</b><i>·</i> Private world <i>·</i> Autosaved</div><div class="bottom-controls"><button id="jumpBtn">↑ JUMP</button><button id="runBtn">⇧ RUN</button><button id="pauseBtn">Ⅱ PAUSE</button></div></footer>
   </main>
   <div class="toast" id="toast"></div>
-  <div class="modal-backdrop" id="modal"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="modal-kicker">JUNIPER HOLLOW · FIELD LOG</div><h2 id="modalTitle">A traveler at the gate</h2><p id="modalBody">A dust-covered traveler waits beyond the south gate, offering a handful of old-world seeds in exchange for a safe night. The settlement watches from the shade.</p><div class="modal-actions"><button class="primary" id="acceptBtn">OFFER SHELTER</button><button class="secondary" id="declineBtn">SEND THEM ON</button></div></div></div>
-  <script src="game.js"></script>
+  <div class="modal-backdrop" id="modal"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="modal-kicker" id="modalKicker">YOUR STORY · CHAPTER ONE</div><h2 id="modalTitle">Create your character</h2><div id="modalBody"></div><div id="modalActions" class="modal-actions"></div></div></div>
+  <div class="mini-map" id="miniMap"><div class="map-head"><span>✧ YOUR WORLD</span><button id="mapClose">×</button></div><div class="map-canvas" id="mapCanvas"></div><div class="map-legend"><span>● Places</span><span>◆ You</span><small>Tap a discovered place to travel instantly</small></div></div>
+  <script type="module" src="game.js"></script>
 </body>
 </html>
